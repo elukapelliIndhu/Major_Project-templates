@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecao - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function toggleInfo() {
+            const infoSection = document.getElementById('extra-info');
+            infoSection.style.display = infoSection.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Selecao</div>
+            <ul>
+                <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+                <li><a href="{{ url_for('prediction') }}">Prediction</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Rice Crop Monitoring Time Series Analysis</h1>
+            <a href="#" class="btn" onclick="toggleInfo()">Read More</a>
+        </section>
+        <section id="extra-info" class="extra-info" style="display: none;">
+            <div class="info-content">
+                <h2>About Rice Crop Monitoring</h2>
+                <p>
+                    Rice crop monitoring involves analyzing time-series data to track trends in production, 
+                    yield, and other factors affecting rice farming. This process uses advanced methods like 
+                    machine learning and statistical analysis to make predictions, evaluate climate impacts, 
+                    and assist in decision-making for sustainable farming practices.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
