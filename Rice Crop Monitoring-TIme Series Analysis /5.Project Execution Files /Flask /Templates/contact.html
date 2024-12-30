@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Rice Production</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Get form data (optional, for additional processing)
+            const formData = new FormData(event.target);
+
+            // Example: Log form data (optional)
+            console.log("Form Data:");
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            // Display the confirmation message
+            const messageContainer = document.getElementById('confirmation-message');
+            messageContainer.textContent = "Message Sent Successfully!";
+            messageContainer.style.color = "green";
+
+            // Clear the form inputs
+            event.target.reset();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+                <li><a href="{{ url_for('prediction') }}">Prediction</a></li>
+                <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <p><strong>Location:</strong> 6th floor, Sundarayya Vignana Kendram, Technical Block, Madhava Reddy Colony, Gachibowli, Hyderabad, Telangana 500032</p>
+            <p><strong>Email:</strong> info@thesmartbridge.com</p>
+            <p><strong>Call:</strong> +91 8583755885</p>
+        </div>
+        <form onsubmit="handleFormSubmit(event)">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="confirmation-message" style="margin-top: 10px; font-weight: bold;"></div>
+    </section>
+</body>
+</html>
